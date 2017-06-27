@@ -77,7 +77,7 @@ Player.prototype = {
     } else if (this.y > 400) {
       this.y = 390;
     } else if (this.y < 0) {
-      alert('Yeah, you can live now!');
+      alert('Well done!');
       this.y = this.yStart;
     }
   }
@@ -104,10 +104,11 @@ document.addEventListener('keyup', function(e) {
 
 // Bugs
 var bug1 = new Enemy(150, 50);
-var bug2 = new Enemy(300, 140);
-var bug3 = new Enemy(200, 220);
+var bug2 = new Enemy(50, 140);
+var bug3 = new Enemy(300, 140);
+var bug4 = new Enemy(0, 50);
 
-var allEnemies = [bug1, bug2, bug3];
+var allEnemies = [bug1, bug2, bug3, bug4];
 
 
 // Player
