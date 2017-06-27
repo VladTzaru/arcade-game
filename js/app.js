@@ -15,6 +15,10 @@ Enemy.prototype = {
       this.x = - 150;
     }
     // Collision control
+    if(this.x > player.x - 50 && this.x < player.x + 50 && this.y > player.y - 50 && this.y < player.y + 50) {
+      player.x = player.xStart;
+      player.y = player.yStart;
+    }
   },
   // Draw the enemy on the screen
   render: function() {
@@ -34,8 +38,7 @@ var Player = function(x, y) {
   // Set reset position
   this.xStart = x;
   this.yStart = y;
-  // Set player score
-  this.score = 0;
+
   // Draw the poor fella
   this.sprite = 'images/char-boy.png';
 };
@@ -75,12 +78,7 @@ Player.prototype = {
       this.y = 390;
     } else if (this.y < 0) {
       alert('Yeah, you can live now!');
-      console.log(this.score += 50);
       this.y = this.yStart;
-    }
-    // Score checker
-    if(this.score < 0) {
-      this.score = 0;
     }
   }
 };
