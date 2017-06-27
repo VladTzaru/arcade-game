@@ -15,3 +15,6 @@ Use arrow keys to move around:
 - *bottom arrow* - move down
 - *left arrow* - move left
 
+## Tip
+Refresh your browser to change the speed of the bugs.
+
