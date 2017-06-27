@@ -14,6 +14,7 @@ Enemy.prototype = {
     if(this.x > 700) {
       this.x = - 150;
     }
+    // Collision control
   },
   // Draw the enemy on the screen
   render: function() {
@@ -30,12 +31,18 @@ Enemy.prototype = {
 var Player = function(x, y) {
   this.x = x;
   this.y = y;
+  // Set reset position
+  this.xStart = x;
+  this.yStart = y;
+  // Set player score
+  this.score = 0;
+  // Draw the poor fella
   this.sprite = 'images/char-boy.png';
 };
 
 // Player methods
 Player.prototype = {
-  update: function(dt) {
+  update: function() {
     this.x = this.x;
     this.y = this.y;
   },
@@ -59,7 +66,22 @@ Player.prototype = {
       case 'left':
         var move = this.x -= 100;
     }
-    // Don't allow player move of the canvas
+    // Confine players movement
+    if(this.x === 500) {
+      this.x = 400;
+    } else if (this.x < 0) {
+      this.x = this.xStart;
+    } else if (this.y > 400) {
+      this.y = 390;
+    } else if (this.y < 0) {
+      alert('Yeah, you can live now!');
+      console.log(this.score += 50);
+      this.y = this.yStart;
+    }
+    // Score checker
+    if(this.score < 0) {
+      this.score = 0;
+    }
   }
 };
 
@@ -81,12 +103,14 @@ document.addEventListener('keyup', function(e) {
 // Now instantiate your objects.
 ///////////////////////////////////////////////////////////////
 
-// Player
-var player = new Player(0, 390);
 
 // Bugs
 var bug1 = new Enemy(150, 50);
 var bug2 = new Enemy(300, 140);
-var bug3 = new Enemy(0, 220);
+var bug3 = new Enemy(200, 220);
 
 var allEnemies = [bug1, bug2, bug3];
+
+
+// Player
+var player = new Player(0, 390);
