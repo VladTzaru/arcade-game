@@ -18,3 +18,5 @@ Use arrow keys to move around:
 ## Tip
 Refresh your browser to change the speed of the bugs.
 
+LIVE: https://vladtzaru.github.io/arcade-game/
+
